@@ -730,37 +730,35 @@ footer {
   <div class="footer-meta">© 2026 Perimenoposse · All Rights Reserved</div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-function handleSignup(e) {
+const SUPABASE_URL = 'https://srszlcaqscgdylqmgyxa.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNyc3psY2Fxc2NnZHlscW1neXhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1Mjg5NTgsImV4cCI6MjA5NDEwNDk1OH0.ij6bJv6q2Fdyqz0kCmStzaCYDbM7y8aNsxqfksc87lc';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function recordSubscriber(email, source) {
+  try {
+    await sb.from('subscribers').insert({ email, source });
+  } catch (_) { /* network errors and duplicates: still show success */ }
+}
+
+async function handleSignup(e) {
   e.preventDefault();
   const form = document.getElementById('signupForm');
   const success = document.getElementById('successMessage');
   const email = form.querySelector('input').value;
-
-  // Store locally for now — replace with real handler (Mailchimp, ConvertKit, Substack embed, etc.)
-  try {
-    const list = JSON.parse(localStorage.getItem('perimenoposse_emails') || '[]');
-    if (!list.includes(email)) list.push(email);
-    localStorage.setItem('perimenoposse_emails', JSON.stringify(list));
-  } catch(err) { /* silent */ }
-
+  await recordSubscriber(email, 'hero');
   form.style.display = 'none';
   success.classList.add('show');
   return false;
 }
 
-function handleSignup2(e) {
+async function handleSignup2(e) {
   e.preventDefault();
   const form = document.getElementById('signupForm2');
   const success = document.getElementById('successMessage2');
   const email = form.querySelector('input').value;
-
-  try {
-    const list = JSON.parse(localStorage.getItem('perimenoposse_emails') || '[]');
-    if (!list.includes(email)) list.push(email);
-    localStorage.setItem('perimenoposse_emails', JSON.stringify(list));
-  } catch(err) { /* silent */ }
-
+  await recordSubscriber(email, 'post');
   form.style.display = 'none';
   success.classList.add('show');
   return false;
