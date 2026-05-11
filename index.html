@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perimenoposse — A Field Guide</title>
+<meta name="description" content="Real food. Real support. Real life. A field guide for the transition years.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest: #1f3829;
+  --forest-deep: #16271d;
+  --forest-soft: #2d4a37;
+  --cream: #f3ede1;
+  --cream-warm: #ebe2d0;
+  --paper: #f8f4ea;
+  --gold: #b8975a;
+  --gold-soft: #c9ad7a;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --rule: rgba(31, 56, 41, 0.18);
+  --rule-cream: rgba(243, 237, 225, 0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* ─── ORNAMENT ─── */
+.ornament {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.divider::before, .divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+.divider-mark {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* ─── TOP BAR ─── */
+.topbar {
+  background: var(--forest-deep);
+  color: var(--cream);
+  padding: 0.7rem 0;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-bottom: 1px solid var(--rule-cream);
+}
+.topbar span { color: var(--gold-soft); margin: 0 0.6rem; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background-color: rgba(248, 244, 234, 0.96);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--forest);
+  letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--forest);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover { color: var(--gold); }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--forest);
+  color: var(--cream);
+  padding: 7rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(184, 151, 90, 0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(184, 151, 90, 0.05), transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-soft);
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  color: var(--cream);
+  opacity: 0.85;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+}
+
+.hero-motto {
+  font-size: 0.75rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-top: 4rem;
+}
+
+/* ─── EMAIL CAPTURE ─── */
+.signup {
+  background: var(--cream);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.signup-inner {
+  max-width: 580px;
+  margin: 0 auto;
+}
+.signup-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.signup h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+.signup p {
+  color: var(--forest-soft);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.signup-form {
+  display: flex;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  border: 1px solid var(--forest);
+  background: var(--paper);
+}
+.signup-form input {
+  flex: 1;
+  padding: 1.1rem 1.4rem;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--forest);
+  outline: none;
+}
+.signup-form input::placeholder { color: var(--muted); opacity: 0.7; }
+.signup-form button {
+  padding: 1.1rem 1.8rem;
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.signup-form button:hover { background: var(--forest-soft); }
+
+.signup-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.success-message {
+  display: none;
+  padding: 1.5rem;
+  border: 1px solid var(--gold);
+  background: var(--paper);
+  color: var(--forest);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+.success-message.show { display: block; }
+
+@media (max-width: 540px) {
+  .signup-form { flex-direction: column; }
+  .signup-form button { padding: 1.2rem; }
+}
+
+/* ─── FIELD GUIDE POST ─── */
+.post {
+  background: var(--paper);
+  padding: 6rem 2rem 5rem;
+}
+.post-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.post-meta {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.post-number {
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.post h2.post-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 400;
+  color: var(--forest);
+  text-align: center;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.post-subtitle {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--forest-soft);
+  margin-bottom: 2rem;
+}
+
+.post-byline {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4rem;
+}
+
+.dropcap::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  float: left;
+  line-height: 0.85;
+  padding: 0.4rem 0.6rem 0 0;
+  color: var(--forest);
+  font-weight: 500;
+}
+
+.post-body p {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: #2a2a2a;
+  margin-bottom: 1.5rem;
+}
+
+.post-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  color: var(--forest);
+  margin: 3rem 0 1rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.post-body h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 2.5rem 0 1rem;
+  font-weight: 500;
+}
+
+.post-body ul {
+  list-style: none;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+.post-body ul li {
+  position: relative;
+  padding: 0.4rem 0 0.4rem 1.8rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2a2a2a;
+  border-bottom: 1px dotted var(--rule);
+}
+.post-body ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0.6rem;
+  top: 0.3rem;
+  color: var(--gold);
+  font-size: 1.6rem;
+  font-family: serif;
+}
+.post-body ul li:last-child { border-bottom: none; }
+
+.pullquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.55rem;
+  line-height: 1.4;
+  color: var(--forest);
+  border-left: 2px solid var(--gold);
+  padding: 0.5rem 0 0.5rem 1.8rem;
+  margin: 2.5rem 0;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin: 2rem 0;
+}
+@media (max-width: 640px) {
+  .section-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+.section-card {
+  padding: 1.8rem;
+  border: 1px solid var(--rule);
+  background: var(--cream);
+}
+.section-card h4 {
+  margin-top: 0;
+}
+
+.disclaimer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.protocol-disclaimer {
+  margin-top: 3rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--forest-soft);
+  line-height: 1.6;
+}
+
+.signup-secondary {
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+
+/* ─── MOTTO BAND ─── */
+.motto {
+  background: var(--forest-deep);
+  color: var(--gold-soft);
+  text-align: center;
+  padding: 3rem 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  letter-spacing: 0.05em;
+}
+.motto span { color: var(--cream); }
+
+/* ─── ELSEWHERE ─── */
+.elsewhere {
+  background: var(--cream);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.elsewhere-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.elsewhere h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 400;
+  color: var(--forest);
+  margin-bottom: 1rem;
+}
+.elsewhere p {
+  color: var(--forest-soft);
+  margin-bottom: 3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+.link-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.link-card {
+  display: block;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--forest);
+  text-decoration: none;
+  color: var(--forest);
+  background: var(--paper);
+  transition: all 0.25s ease;
+}
+.link-card:hover {
+  background: var(--forest);
+  color: var(--cream);
+}
+.link-card .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+.link-card .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+@media (max-width: 540px) {
+  .link-row { grid-template-columns: 1fr; }
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--forest-deep);
+  color: var(--cream);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-soft);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+.footer-meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.5;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule-cream);
+}
+
+/* ─── REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Perimenoposse</div>
+  <ul class="nav-links">
+    <li><a href="#field-guide">Field Guide</a></li>
+    <li><a href="#elsewhere">Elsewhere</a></li>
+    <li><a href="#signup">Join</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">A Field Guide for the Perimenopause Years</div>
+    <h1>Perimenoposse</h1>
+    <div class="divider">
+      <span class="divider-mark">❦</span>
+    </div>
+    <p class="hero-tagline">
+      If you've been feeling like a stranger in your own body and wondering if you're losing it — you're not. You might just be in the Perimenoposse now. Wipe the unwanted sweat from your brow and pull up a chair.
+    </p>
+    <div class="hero-motto">Real Food · Real Support · Real Life</div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="signup-inner">
+    <div class="signup-eyebrow">Join the Posse</div>
+    <h2>Subscribe if this is your season.</h2>
+    <p>YouTube video alerts, field guides, protocols, and the things one woman wishes someone had told her sooner. Stuff that worked for her that might work for you. New guides as they develop.</p>
+
+    <form class="signup-form" id="signupForm" onsubmit="return handleSignup(event)">
+      <input type="email" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      You're in. Welcome to the posse. ❦
+    </div>
+
+    <p class="signup-note">I am not a doctor. Trust your instincts. Do your own research.</p>
+  </div>
+</section>
+
+<article class="post" id="field-guide">
+  <div class="post-inner">
+    <div class="post-meta">
+      <div class="post-number">Field Guide · No. 01</div>
+      <h2 class="post-title">I Thought I Was Dying.<br>I Was Just 50.</h2>
+      <p class="post-subtitle">Three months ago I was convinced something was seriously wrong with me. Turns out I was just starving.</p>
+      <div class="post-byline">A Field Guide · No. 01</div>
+    </div>
+
+    <div class="post-body">
+      <p class="dropcap">Three months ago I was convinced something was seriously wrong with me. I was exhausted in a way I had never experienced before. I called it "lung-energy death." I was apathetic about my work, my projects, my people. I was letting twenty-year friendships quietly dissolve because I didn't have the energy to care anymore. And then I got a UTI that lasted for two years and counting.</p>
+
+      <p>I finally went to the doctor, got the UTI treated (again), and asked the question I'd been dodging: <em>is this perimenopause?</em></p>
+
+      <p>Yes. Obviously. In hindsight, obviously.</p>
+
+      <p>So I came home and went down a research hole. What I learned: my body had entered a new season with new nutritional needs, and I was still eating like I was thirty. Less estrogen means I need more phytoestrogens, more calcium, more magnesium, more omega-3s, more fiber, more fermented foods, more protein — and I need to time it differently.</p>
+
+      <p>I went on a grocery shopping spree. I started roasting things for myself in my toaster oven. I added supplements. Within days I felt sharper and steadier. At three weeks, my hot flashes stopped. I'm sleeping through the night. I'm answering texts again. I'm not dying. I was just starving.</p>
+
+      <p>Here's the full protocol, in case it's useful to you or someone you love.</p>
+
+      <h3>The Protocol</h3>
+
+      <h4>Breakfast / anytime</h4>
+      <ul>
+        <li>Oatmeal + plain yogurt with chia seeds, ground flax, berries, apples</li>
+        <li>Eggs</li>
+        <li>Protein every 3 hours — and protein before coffee, not after</li>
+      </ul>
+
+      <h4>Roasted & savory</h4>
+      <ul>
+        <li>Roasted broccoli + sweet potatoes</li>
+        <li>Garbanzo beans with red onion pickled in red wine vinegar</li>
+        <li>Lentils / lentil soup</li>
+        <li>Sauerkraut</li>
+        <li>Kimchi</li>
+        <li>Seaweed</li>
+        <li>Olive oil on everything</li>
+      </ul>
+
+      <h4>Daily snacks — the mineral crew</h4>
+      <ul>
+        <li>Walnuts</li>
+        <li>Almonds</li>
+        <li>Brazil nuts — selenium; two a day is plenty</li>
+        <li>Pumpkin seeds</li>
+        <li>Goji berries</li>
+      </ul>
+
+      <h4>Tea & supplements</h4>
+      <ul>
+        <li>Traditional Medicinals Throat Coat — for the marshmallow root</li>
+        <li>Black cohosh — 80 mg, morning and night*</li>
+        <li>Glycine — Pure Encapsulations, 3 capsules / 1500 mg at bedtime*</li>
+        <li>Magnesium at bedtime*</li>
+        <li>D-mannose — added to my water just to keep the UTI away*</li>
+      </ul>
+
+      <h4>Rhythms that matter as much as the food</h4>
+      <ul>
+        <li>Eat dinner early</li>
+        <li>Stop eating and put devices away an hour and a half before bed</li>
+        <li>Get sunlight in your eyes when you get up</li>
+        <li>Sleep through the night — the glycine + magnesium combo did the trick for me</li>
+      </ul>
+
+      <p class="protocol-disclaimer">*I am not a doctor. Trust your instincts. Do your own research.</p>
+    </div>
+  </div>
+</article>
+
+<section class="signup signup-secondary">
+  <div class="signup-inner">
+    <h2>New episodes as they emerge.<br>Subscribe if this is your season.</h2>
+
+    <form class="signup-form" id="signupForm2" onsubmit="return handleSignup2(event)">
+      <input type="email" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <div class="success-message" id="successMessage2">
+      You're in. Welcome to the posse. ❦
+    </div>
+  </div>
+</section>
+
+<section class="motto">
+  Real food. Real support. Real life.
+</section>
+
+<section class="elsewhere" id="elsewhere">
+  <div class="elsewhere-inner">
+    <h2>Find the Posse Elsewhere</h2>
+    <p>The field guides live here. Longer reads and videos live elsewhere.</p>
+    <div class="link-row">
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <span class="label">Read</span>
+        <span class="name">Substack</span>
+      </a>
+      <a class="link-card" href="#" target="_blank" rel="noopener">
+        <span class="label">Watch</span>
+        <span class="name">YouTube</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Perimenoposse&trade;</div>
+  <div class="footer-tagline">You are not alone.</div>
+  <div class="footer-meta">© 2026 Perimenoposse · All Rights Reserved</div>
+</footer>
+
+<script>
+function handleSignup(e) {
+  e.preventDefault();
+  const form = document.getElementById('signupForm');
+  const success = document.getElementById('successMessage');
+  const email = form.querySelector('input').value;
+
+  // Store locally for now — replace with real handler (Mailchimp, ConvertKit, Substack embed, etc.)
+  try {
+    const list = JSON.parse(localStorage.getItem('perimenoposse_emails') || '[]');
+    if (!list.includes(email)) list.push(email);
+    localStorage.setItem('perimenoposse_emails', JSON.stringify(list));
+  } catch(err) { /* silent */ }
+
+  form.style.display = 'none';
+  success.classList.add('show');
+  return false;
+}
+
+function handleSignup2(e) {
+  e.preventDefault();
+  const form = document.getElementById('signupForm2');
+  const success = document.getElementById('successMessage2');
+  const email = form.querySelector('input').value;
+
+  try {
+    const list = JSON.parse(localStorage.getItem('perimenoposse_emails') || '[]');
+    if (!list.includes(email)) list.push(email);
+    localStorage.setItem('perimenoposse_emails', JSON.stringify(list));
+  } catch(err) { /* silent */ }
+
+  form.style.display = 'none';
+  success.classList.add('show');
+  return false;
+}
+
+// Scroll reveals
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('in');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section, article').forEach(el => {
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
